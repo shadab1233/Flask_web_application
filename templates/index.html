@@ -1,0 +1,36 @@
+{% extends 'master.html' %}
+{% include 'header.html' %}
+
+
+{% block title %} Home {% endblock %}
+
+
+{% block body %}
+<div class="container">
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">name</th>
+            <th scope="col">email</th>
+            <th scope="col">gender</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for student in students%}
+          <tr>
+            <th scope="row">{{ loop.index}}</th>
+            <td>{{student.name}}</td>
+            <td>{{student.email}}</td>
+            <td>{{student.gender}}</td>
+            <td><a href="/{{student.id}}/edit" class="mx-1">edit</a><a href="/{{student.id}}/delete" class="mx-1">delete</a></td>
+          </tr>
+
+        {% endfor %}
+          
+        </tbody>
+      </table>
+</div>
+
+{% endblock %}
